@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ligas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-4">
+  <h1 class="text-xl mb-4">Ligas</h1>
+  <ul class="list-disc pl-4">
+  <% for(let lg of leagues) { %>
+    <li>
+      <a class="text-blue-700" href="/events/<%= lg.idLeague || lg.externalId %>"><%= lg.strLeague || lg.name %></a>
+      (<%= lg.strCountry || lg.country %>)
+    </li>
+  <% } %>
+  </ul>
+  <a href="/" class="mt-4 inline-block text-blue-700">Inicio</a>
+</body>
+</html>

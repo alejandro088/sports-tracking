@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model League {
+  id       Int    @id @default(autoincrement())
+  externalId String @unique
+  name     String
+  country  String?
+  events   Event[]
+}
+
+model Event {
+  id         Int    @id @default(autoincrement())
+  externalId String @unique
+  name       String
+  date       DateTime?
+  leagueId   Int
+  league     League @relation(fields: [leagueId], references: [id])
+  details    String?
+}
