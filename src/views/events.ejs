@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eventos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-4">
+  <h1 class="text-xl mb-4">Eventos</h1>
+  <ul class="list-disc pl-4">
+  <% for(let ev of events) { %>
+    <li>
+      <a class="text-blue-700" href="/event/<%= ev.idEvent || ev.externalId %>"><%= ev.strEvent || ev.name %></a>
+      <span class="text-gray-600"><%= ev.dateEvent || (ev.date && ev.date.toISOString().split('T')[0]) %></span>
+    </li>
+  <% } %>
+  </ul>
+  <a href="/" class="mt-4 inline-block text-blue-700">Inicio</a>
+</body>
+</html>

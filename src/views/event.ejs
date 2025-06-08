@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Evento</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-4">
+  <% if(event) { %>
+    <h1 class="text-xl mb-2"><%= event.strEvent || event.name %></h1>
+    <p class="mb-2 text-gray-700"><%= event.dateEvent || (event.date && event.date.toISOString().split('T')[0]) %></p>
+    <p><%= event.strDescriptionEN || event.details %></p>
+  <% } else { %>
+    <p>No se encontró el evento</p>
+  <% } %>
+  <a href="/" class="mt-4 inline-block text-blue-700">Inicio</a>
+</body>
+</html>
